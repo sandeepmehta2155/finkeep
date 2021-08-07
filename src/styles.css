@@ -1,0 +1,159 @@
+.App {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.sideNavBar {
+  position: relative;
+  top: 3rem;
+  -webkit-align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-border-radius: 0 25px 25px 0;
+  border-radius: 0 25px 25px 0;
+  color: #202124;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  letter-spacing: 0.01785714em;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  height: 48px;
+  width: 25%;
+  margin-top: 1.2rem;
+  margin-left: 1rem;
+  overflow: hidden;
+}
+.sideNavBar:hover {
+  background-color: lightgray;
+  width: 20%;
+}
+
+.svgImg {
+  width: 2rem;
+  margin-right: 1.2rem;
+  height: 2rem;
+}
+
+.keepImg {
+  width: 40px;
+  height: 40px;
+}
+
+.options {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+.keepImg {
+  position: fixed;
+  top: 0.4rem;
+  left: 3rem;
+}
+.appName {
+  position: fixed;
+  top: -0.5rem;
+  left: 7rem;
+}
+
+.bi-person {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.darkModeSwitch {
+  position: fixed;
+  top: 1rem;
+  right: 4rem;
+}
+
+.hrLine {
+  width: 100%;
+  height: 0.1rem;
+  background-color: gray;
+  position: relative;
+  top: 3.5rem;
+}
+
+.createNotes {
+  position: fixed;
+  top: 5rem;
+  left: 25%;
+}
+
+.createNotesInput {
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  border: 1px solid white;
+  border-radius: 0.4rem;
+  height: 5%;
+  position: fixed;
+  left: 30%;
+  width: 40%;
+}
+
+.note {
+  position: relative;
+  top: 0.7rem;
+  left: 0.7rem;
+}
+
+.bi-file-earmark-check,
+.bi-pin-angle,
+.bi-pin-angle-fill {
+  position: fixed;
+  top: 5.5rem;
+  left: 72%;
+}
+
+.createNotesTitle,
+.createTakeaNote {
+  border: 1px solid white;
+  width: 100%;
+  height: 3rem;
+  padding-inline-start: 1rem;
+  /* box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%); */
+  border: 2px solid white;
+}
+
+.createTakeaNote {
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.createNotesTitle {
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.bi-bell-fill,
+.bi-palette-fill,
+.closeButton {
+  float: right;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.closeButton {
+  margin-top: 0.2rem;
+}
+
+.bi-bell-fill:hover,
+.bi-palette-fill:hover,
+.closeButton:hover {
+  background-color: lightgray;
+  border-radius: 1rem;
+}
