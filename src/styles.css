@@ -6,6 +6,12 @@ body {
   margin: 0;
 }
 
+h1,
+h2 {
+  margin: 0;
+}
+
+/* // SIDE NAV */
 .sideNavBar {
   position: relative;
   top: 3rem;
@@ -43,24 +49,26 @@ body {
   height: 2rem;
 }
 
-.keepImg {
-  width: 40px;
-  height: 40px;
-}
+/* Headers */
 
 .options {
   position: fixed;
   top: 1rem;
   left: 1rem;
 }
+
 .keepImg {
+  width: 40px;
+  height: 40px;
   position: fixed;
   top: 0.4rem;
   left: 3rem;
 }
+
 .appName {
+  font-family: "Courier New", Courier, monospace;
   position: fixed;
-  top: -0.5rem;
+  top: 0.5rem;
   left: 7rem;
 }
 
@@ -80,11 +88,14 @@ body {
   width: 100%;
   height: 0.1rem;
   background-color: gray;
-  position: relative;
+  position: fixed;
   top: 3.5rem;
 }
 
+/* Input Note Box */
+
 .createNotes {
+  border-radius: 0.4rem;
   position: fixed;
   top: 5rem;
   left: 25%;
@@ -94,13 +105,13 @@ body {
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
   border: 1px solid white;
   border-radius: 0.4rem;
-  height: 5%;
+  height: 6%;
   position: fixed;
   left: 30%;
   width: 40%;
 }
 
-.note {
+.takeNote {
   position: relative;
   top: 0.7rem;
   left: 0.7rem;
@@ -120,13 +131,15 @@ body {
   width: 100%;
   height: 3rem;
   padding-inline-start: 1rem;
-  /* box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%); */
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
   border: 2px solid white;
+  outline: none;
+}
+.createTakeaNote {
+  height: 6rem;
 }
 
 .createTakeaNote {
-  border-bottom-left-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
   font-size: 0.9rem;
 }
 
@@ -139,21 +152,60 @@ body {
 
 .bi-bell-fill,
 .bi-palette-fill,
-.closeButton {
-  float: right;
-  margin-right: 0.5rem;
+.closeButton,
+.addButton {
   padding: 0.5rem;
   background-color: white;
   border: 1px solid white;
+  position: fixed;
+  top: 12rem;
+  left: 30.8%;
 }
 
-.closeButton {
-  margin-top: 0.2rem;
+.bi-palette-fill {
+  left: 33.5%;
+}
+
+.closeButton,
+.addButton {
+  position: fixed;
+  top: 12.2rem;
+  left: 65%;
+}
+.addButton {
+  left: 62%;
 }
 
 .bi-bell-fill:hover,
 .bi-palette-fill:hover,
-.closeButton:hover {
+.closeButton:hover,
+.addButton:hover {
   background-color: lightgray;
   border-radius: 1rem;
+}
+
+/* Display Notes */
+
+.displayNotes {
+  width: 70%;
+  position: absolute;
+  top: 15rem;
+  left: 26%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.noteTemplate {
+  border: 1px solid rgb(238, 234, 234);
+  width: 25%;
+  margin: 1rem;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  padding-inline-start: 1rem;
+}
+
+@media (max-width: 600px) {
+  .sideNavBar label {
+    display: none;
+  }
 }
