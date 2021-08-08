@@ -1,5 +1,4 @@
 import "./styles.css";
-
 import * as useComponent from "./index";
 
 export default function App() {
@@ -7,7 +6,7 @@ export default function App() {
     <div className="App">
       <useComponent.Header />
       <useComponent.SideNav />
-      <useComponent.CreateNote />
+      <useComponent.RouteComponents />
     </div>
   );
 }

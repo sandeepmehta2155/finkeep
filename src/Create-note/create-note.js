@@ -4,6 +4,11 @@ import axios from "axios";
 export const NoteIconContext = createContext();
 
 export const CreateNote = () => {
+  function playAudio() {
+    const audioEl = document.getElementsByClassName("audio-element")[0];
+    audioEl.play();
+  }
+
   const [noteActive, setNoteActive] = useState("none");
   const [notePassive, setNotePassive] = useState("block");
   const [pinned, setPinned] = useState(false);
@@ -27,6 +32,7 @@ export const CreateNote = () => {
     );
 
     setNoteArray(response.data.userUpdatedNote);
+    playAudio();
   }
 
   return (
@@ -38,6 +44,9 @@ export const CreateNote = () => {
           setNotePassive("none");
         }}
       >
+        <audio className="audio-element">
+          <source src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"></source>
+        </audio>
         <div className="createNotesInput">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -204,6 +204,60 @@ h2 {
   padding-inline-start: 1rem;
 }
 
+/* LOGIN PAGE */
+
+.loginModal {
+  position: fixed;
+  top: 7rem;
+  left: 30%;
+}
+.loginModal input {
+  height: 2rem;
+  padding-inline-start: 1rem;
+  border-radius: 3rem;
+  outline: none;
+  border: 0.5px solid rgb(241, 194, 105);
+}
+
+.loginModal input:focus {
+  box-shadow: 0 1px 2px 0 rgb(241, 194, 105), 0 1px 3px 2px rgb(241, 194, 105);
+}
+.loginHeading {
+  position: relative;
+  left: 30%;
+}
+
+.todoImg {
+  position: fixed;
+  right: 0rem;
+  top: 15rem;
+}
+.loginButton,
+.signupButton {
+  background-color: rgb(241, 194, 105);
+  color: white;
+  border: 1px solid rgb(241, 194, 105);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: 4rem;
+}
+.loginButton:hover,
+.signupButton:hover {
+  box-shadow: 0 1px 2px 0 rgb(241, 194, 105), 0 1px 3px 2px rgb(241, 194, 105);
+  background-color: white;
+  color: orange;
+}
+
+.loginButton {
+  float: left;
+  margin-left: 1rem;
+}
+
+.signupButton {
+  float: right;
+  margin-right: 1rem;
+}
+
 @media (max-width: 600px) {
   .sideNavBar label {
     display: none;
