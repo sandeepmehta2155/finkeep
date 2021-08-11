@@ -6,6 +6,7 @@ export const RouteComponents = () => {
     <Routes>
       <Route path="/" element={<useComponent.CreateNote />} />
       <Route path="/login" element={<useComponent.LoginPage />} />
+      <Route path="/signup" element={<useComponent.SignUpPage />} />
     </Routes>
   );
 };

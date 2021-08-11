@@ -1,50 +1,30 @@
-import axios from "axios";
 import { useState } from "react";
 import { Todo } from "./todo";
+import { useAuth } from "./auth-context";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const { username } = JSON.parse(localStorage.getItem("username")) || {
     username: null
   };
-
-  const [validateUser, setUserValidation] = useState({
-    userExists: "none",
-    checkPassword: "none",
-    userauth: "none"
-  });
-
   const [userCredentials, setUserCredentials] = useState({
     userName: username,
     passWord: null
   });
 
-  async function CallLogin() {
-    const response = await axios.get(
-      `https://finkeep-backend.sandeepmehta215.repl.co/userauth/id?username=${userCredentials.userName}&password=${userCredentials.passWord}`
-    );
+  const { LogOut, LoginUserWithCredentials, validateUser } = useAuth();
 
-    if (response.data.message === "user not found")
-      setUserValidation({
-        ...validateUser,
-        checkPassword: "none",
-        userExists: "block"
-      });
+  const navigate = useNavigate();
 
-    if (response.data.message === "password entered is wrong")
-      setUserValidation({
-        ...validateUser,
-        userExists: "none",
-        checkPassword: "block"
-      });
-
-    if (response.data.message === "user auth is successfull")
-      setUserValidation({
-        userauth: "block",
-        userExists: "none",
-        checkPassword: "none"
-      });
-    console.log(response.data);
+  function LoginHandler() {
+    username
+      ? LogOut()
+      : LoginUserWithCredentials(
+          userCredentials.userName,
+          userCredentials.passWord
+        );
   }
+
   return (
     <>
       <Todo />
@@ -75,10 +55,12 @@ export const LoginPage = () => {
         </small>
         <br />
         <br />
-        <button className="loginButton" onClick={() => CallLogin()}>
+        <button className="loginButton" onClick={() => LoginHandler()}>
           Login
         </button>
-        <button className="signupButton">SignUp</button>
+        <button className="signupButton" onClick={() => navigate("/signup")}>
+          SignUp
+        </button>
         <br />
         <br />
         <small style={{ display: validateUser.userauth, color: "green" }}>

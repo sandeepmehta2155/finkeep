@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const NoteIconContext = createContext();
 
@@ -19,21 +20,24 @@ export const CreateNote = () => {
   });
 
   const { username } = JSON.parse(localStorage.getItem("username")) || {
-    username: "mehta2155"
+    username: null
   };
-
-  const [userName, setUserName] = useState(username);
+  const navigate = useNavigate();
 
   const [noteArray, setNoteArray] = useState([]);
 
   async function CallNotes() {
     const response = await axios.get(
-      `https://finkeep-backend.sandeepmehta215.repl.co/addnotes/${userName}?gettitle=${note.title}&getnotes=${note.notes}`
+      `https://finkeep-backend.sandeepmehta215.repl.co/addnotes/${username}?gettitle=${note.title}&getnotes=${note.notes}`
     );
 
     setNoteArray(response.data.userUpdatedNote);
     playAudio();
   }
+
+  useEffect(() => {
+    username !== null ? navigate("/") : navigate("/login");
+  }, []);
 
   return (
     <>

@@ -70,14 +70,21 @@ h2 {
   position: fixed;
   top: 0.5rem;
   left: 7rem;
+  cursor: pointer;
 }
 
 .bi-person {
   position: fixed;
   top: 1rem;
   right: 1rem;
+  cursor: pointer;
 }
-
+.loginRoute {
+  position: fixed;
+  top: 2.7rem;
+  right: 1rem;
+  cursor: pointer;
+}
 .darkModeSwitch {
   position: fixed;
   top: 1rem;
@@ -89,7 +96,7 @@ h2 {
   height: 0.1rem;
   background-color: gray;
   position: fixed;
-  top: 3.5rem;
+  top: 3.8rem;
 }
 
 /* Input Note Box */
