@@ -122,6 +122,13 @@ h2 {
   float: right;
 }
 
+.emptyNotes {
+  height: 60%;
+  width: 60%;
+  position: absolute;
+  right: 0rem;
+  top: 15rem;
+}
 .takeNote {
   position: relative;
   top: 0.7rem;

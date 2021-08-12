@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { NotesImg } from "./notes-img";
 
 export const NoteIconContext = createContext();
 
@@ -46,7 +47,7 @@ export const CreateNote = () => {
   useEffect(async () => {
     username !== null ? navigate("/") : navigate("/login");
     const response = await axios.get(
-      `https://finkeep-backend.sandeepmehta215.repl.co/addnotes/${username}?gettitle=${note.title}&getnotes=${note.notes}`
+      `https://finkeep-backend.sandeepmehta215.repl.co/addnotes/${username}`
     );
 
     setNoteArray(response.data.userUpdatedNote);
@@ -165,6 +166,8 @@ export const CreateNote = () => {
       >
         Add
       </button>
+      {noteArray.length <= 0 && <NotesImg />}
+
       <ul className="displayNotes">
         {noteArray.map((key) => (
           <li className="noteTemplate" key={key._id}>
