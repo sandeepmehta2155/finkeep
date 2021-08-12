@@ -118,6 +118,10 @@ h2 {
   width: 40%;
 }
 
+.bi-x-circle {
+  float: right;
+}
+
 .takeNote {
   position: relative;
   top: 0.7rem;
@@ -238,6 +242,7 @@ h2 {
   position: fixed;
   right: 0rem;
   top: 15rem;
+  z-index: -1;
 }
 .loginButton,
 .signupButton {
