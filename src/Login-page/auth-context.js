@@ -15,7 +15,7 @@ export function UserAuthProvider({ children }) {
 
   async function LoginUserWithCredentials(username, password) {
     const response = await axios.get(
-      `https://finkeep-backend.sandeepmehta215.repl.co/userauth/id?username=${username}&password=${password}`
+      `https://finkeep-backend.sandeepmehta215.repl.co/userauth/${username}?username=${username}&password=${password}`
     );
 
     if (response.data.message === "user not found")
