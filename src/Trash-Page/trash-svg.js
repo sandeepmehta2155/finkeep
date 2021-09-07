@@ -6,6 +6,7 @@ export const TrashSvg = () => (
     width="920.30414"
     height="515.08657"
     viewBox="0 0 920.30414 515.08657"
+    className="trashImg"
   >
     <path
       id="a935b196-91fc-4d65-bd04-49275a33d175"

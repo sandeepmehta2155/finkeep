@@ -6,6 +6,7 @@ export const RemainderSvg = () => (
     width="812.48403"
     height="497.67988"
     viewBox="0 0 812.48403 497.67988"
+    className="watchSvg"
   >
     <ellipse
       cx="431.42522"

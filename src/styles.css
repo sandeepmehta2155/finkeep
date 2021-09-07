@@ -293,7 +293,9 @@ h2 {
   left: 30%;
 }
 
-.todoImg {
+.todoImg,
+.trashImg,
+.watchSvg {
   position: fixed;
   right: 0rem;
   top: 15rem;
