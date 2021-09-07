@@ -14,15 +14,6 @@ export const Header = () => {
   }
   return (
     <>
-      <svg
-        focusable="false"
-        className="options"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-      </svg>
       <img
         className="keepImg"
         src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
