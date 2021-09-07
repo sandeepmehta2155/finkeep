@@ -18,13 +18,24 @@ export const CreateNote = () => {
   const [pinned, setPinned] = useState(false);
 
   const [note, setNote] = useState({
-    title: null,
-    notes: null,
+    title: "",
+    notes: "",
     backgroundColor: "#FFFFFF"
   });
 
   const addNotes = () =>
-    toast.success("Updating liked videos", {
+    toast.success("Adding note...", {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
+
+  const removeNotes = () =>
+    toast.success("Removing note...", {
       position: "bottom-center",
       autoClose: 2000,
       hideProgressBar: false,
@@ -52,12 +63,6 @@ export const CreateNote = () => {
   }
 
   async function CallNotes() {
-    setNote({
-      title: null,
-      notes: null,
-      backgroundColor: "#FFFFFF"
-    });
-
     const response = await axios.get(
       `https://finkeep-backend.sandeepmehta215.repl.co/addnotes/${username}?gettitle=${note.title}&getnotes=${note.notes}&getbgcolor=${note.backgroundColor}`
     );
@@ -227,6 +232,7 @@ export const CreateNote = () => {
           setNoteActive("none");
           setNotePassive("block");
           setClass("active");
+          addNotes();
           CallNotes();
         }}
         style={{ display: noteActive }}
@@ -252,7 +258,7 @@ export const CreateNote = () => {
               className="bi-x-circle"
               viewBox="0 0 16 16"
               onClick={() => {
-                console.log(key._id);
+                removeNotes();
                 RemoveNote(key._id);
               }}
             >
