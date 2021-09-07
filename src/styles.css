@@ -12,6 +12,18 @@ h2 {
 }
 
 /* // SIDE NAV */
+
+.sideNav {
+  position: fixed;
+  top: 2rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sideNav a {
+  text-decoration: none;
+  cursor: pointer;
+}
 .sideNavBar {
   position: relative;
   top: 3rem;
@@ -37,10 +49,12 @@ h2 {
   margin-top: 1.2rem;
   margin-left: 1rem;
   overflow: hidden;
+  cursor: pointer;
 }
 .sideNavBar:hover {
   background-color: lightgray;
   width: 20%;
+  cursor: pointer;
 }
 
 .svgImg {
@@ -208,6 +222,17 @@ h2 {
   width: 70%;
   position: absolute;
   top: 15rem;
+  left: 26%;
+  z-index: -1;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.displayNotesAtTrashPage {
+  width: 70%;
+  position: absolute;
+  top: 5rem;
   left: 26%;
   z-index: -1;
   display: flex;
