@@ -217,10 +217,32 @@ h2 {
 }
 
 /* Display Notes */
+.displayPinnedNotes {
+  position: relative;
+  top: 15rem;
+  left: 26%;
+  width: 70%;
+  border: 1px solid light gray;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.bi-pin-angle {
+  position: relative;
+  left: 1.5rem;
+  top: -0.8rem;
+}
+.displayPinnedNotes label,
+.displayNotes label {
+  position: relative;
+  top: -0.6rem;
+  left: 1.8rem;
+}
 
 .displayNotes {
   width: 70%;
-  position: absolute;
+  position: relative;
   top: 15rem;
   left: 26%;
   z-index: -1;
@@ -234,7 +256,7 @@ h2 {
   position: absolute;
   top: 5rem;
   left: 26%;
-  z-index: -1;
+  z-index: 0;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
