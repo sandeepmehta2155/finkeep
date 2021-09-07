@@ -81,7 +81,7 @@ export const SignUpPage = () => {
           placeholder="Re-enter your password..."
           onChange={(e) => setpasswordReInput(e.target.value)}
         />
-        <br />{" "}
+        <br />
         <input
           id="check"
           type="checkbox"
@@ -96,7 +96,7 @@ export const SignUpPage = () => {
         <br />
         <br />
         <button className="loginButton" onClick={() => navigate("/login")}>
-          Login
+          Back to Login
         </button>
         <button
           className="signupButton"

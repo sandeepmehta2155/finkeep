@@ -33,6 +33,7 @@ export const LoginPage = () => {
         <br />
         <input
           type="name"
+          value={userCredentials.userName}
           placeholder="Enter your username..."
           onChange={(e) =>
             setUserCredentials({ ...userCredentials, userName: e.target.value })
@@ -45,6 +46,7 @@ export const LoginPage = () => {
         <br /> <br />
         <input
           type="password"
+          value={userCredentials.passWord}
           placeholder="Enter your password..."
           onChange={(e) =>
             setUserCredentials({ ...userCredentials, passWord: e.target.value })
@@ -53,8 +55,17 @@ export const LoginPage = () => {
         <small style={{ display: validateUser.checkPassword, color: "red" }}>
           Wrong passWord
         </small>
-        <br />
-        <br />
+        <br /> <br />
+        <small
+          className="loginAsGuestText"
+          onClick={() => {
+            setUserCredentials({ userName: "guest", passWord: "guest@123" });
+          }}
+        >
+          {" "}
+          Login as a guest ?
+        </small>
+        <br /> <br />
         <button className="loginButton" onClick={() => LoginHandler()}>
           Login
         </button>

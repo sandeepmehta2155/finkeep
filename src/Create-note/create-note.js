@@ -2,6 +2,8 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { NotesImg } from "./notes-img";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const NoteIconContext = createContext();
 
@@ -17,8 +19,20 @@ export const CreateNote = () => {
 
   const [note, setNote] = useState({
     title: null,
-    notes: null
+    notes: null,
+    backgroundColor: "#FFFFFF"
   });
+
+  const addNotes = () =>
+    toast.success("Updating liked videos", {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
 
   const { username } = JSON.parse(localStorage.getItem("username")) || {
     username: null
@@ -26,6 +40,8 @@ export const CreateNote = () => {
   const navigate = useNavigate();
 
   const [noteArray, setNoteArray] = useState([]);
+
+  const [classReq, setClass] = useState("active");
 
   async function RemoveNote(_id) {
     const response = await axios.get(
@@ -36,8 +52,14 @@ export const CreateNote = () => {
   }
 
   async function CallNotes() {
+    setNote({
+      title: null,
+      notes: null,
+      backgroundColor: "#FFFFFF"
+    });
+
     const response = await axios.get(
-      `https://finkeep-backend.sandeepmehta215.repl.co/addnotes/${username}?gettitle=${note.title}&getnotes=${note.notes}`
+      `https://finkeep-backend.sandeepmehta215.repl.co/addnotes/${username}?gettitle=${note.title}&getnotes=${note.notes}&getbgcolor=${note.backgroundColor}`
     );
 
     setNoteArray(response.data.userUpdatedNote);
@@ -55,6 +77,7 @@ export const CreateNote = () => {
 
   return (
     <>
+      <ToastContainer />
       <div
         className="createNotes"
         onClick={() => {
@@ -88,17 +111,59 @@ export const CreateNote = () => {
           >
             <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
           </svg>
+          <div className="profile">
+            <div className="content">
+              <div
+                className="btn"
+                onClick={() =>
+                  classReq === "box open"
+                    ? setClass("active")
+                    : setClass("box open")
+                }
+              ></div>
+            </div>
+            <div className={classReq}>
+              <i
+                className="fa fa-codepen"
+                onClick={() => setNote({ ...note, backgroundColor: "D3D3D3" })}
+              ></i>
+              <i
+                className="fa fa-facebook"
+                onClick={() => setNote({ ...note, backgroundColor: "FFC0CB" })}
+              ></i>
+              <i
+                className="fa fa-github"
+                onClick={() => setNote({ ...note, backgroundColor: "adeb67" })}
+              ></i>
+              <i
+                className="fa fa-reddit"
+                onClick={() => setNote({ ...note, backgroundColor: "ff4301" })}
+              ></i>
+              <i
+                className="fa fa-twitter"
+                onClick={() => setNote({ ...note, backgroundColor: "1da1f2" })}
+              ></i>
+            </div>
+          </div>
           <input
             className="createNotesTitle"
             placeholder="Title"
-            style={{ display: noteActive }}
+            style={{
+              display: noteActive,
+              backgroundColor: `#${note.backgroundColor}`
+            }}
+            value={note.title}
             onChange={(e) => setNote({ ...note, title: e.target.value })}
           />
           <textarea
+            value={note.note}
             className="createTakeaNote"
             placeholder="Take a note..."
             onChange={(e) => setNote({ ...note, notes: e.target.value })}
-            style={{ display: noteActive }}
+            style={{
+              display: noteActive,
+              backgroundColor: `#${note.backgroundColor}`
+            }}
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -149,6 +214,7 @@ export const CreateNote = () => {
         onClick={() => {
           setNoteActive("none");
           setNotePassive("block");
+          setClass("active");
         }}
         style={{ display: noteActive }}
       >
@@ -160,6 +226,7 @@ export const CreateNote = () => {
         onClick={() => {
           setNoteActive("none");
           setNotePassive("block");
+          setClass("active");
           CallNotes();
         }}
         style={{ display: noteActive }}
@@ -170,7 +237,13 @@ export const CreateNote = () => {
 
       <ul className="displayNotes">
         {noteArray.map((key) => (
-          <li className="noteTemplate" key={key._id}>
+          <li
+            className="noteTemplate"
+            key={key._id}
+            style={{
+              backgroundColor: `#${key.bgcolor}`
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
