@@ -294,12 +294,17 @@ h2 {
   left: 30%;
 }
 
-.todoImg,
+.todoImg {
+  position: fixed;
+  right: 0rem;
+  top: 15rem;
+  z-index: -1;
+}
 .trashImg,
 .watchSvg {
   position: fixed;
   right: 0rem;
-  top: 15rem;
+  top: 11rem;
   z-index: -1;
 }
 
